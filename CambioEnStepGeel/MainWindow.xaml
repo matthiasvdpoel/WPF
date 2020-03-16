@@ -1,0 +1,27 @@
+﻿<Window x:Class="CambioEnStepGeel.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CambioEnStepGeel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+
+        
+      
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+       FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
+
+
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Welcome to XAML Tutorial with VB.net" Height="20" Width="220" Margin="20" />
+            <Button Content="Ok" Height="40" Width="60" Margin="5"/>
+        </StackPanel>
+    </Grid>
+</Window>
