@@ -54,3 +54,15 @@ Terug knop gaat terug naar het dashboard (currentuser wordt doorgegeven)
 
 ### Mijn Profiel
 De gebruiker ziet een gelijkaardig scherm als bij het registreren. Nu zijn de gegevens van de gebruiker echter al ingevuld. Als een waarde volledig verwijderd wordt ziet de gebruiker de materialdesign hint assist in de textbox. De update knop zal de gebruiker updaten. Vervolgens komt de gebruiker terug op het dashboard. De aangepaste gebruiker wordt doorgegeven. De terug knop brengt de gebruiker ook naar het dashboard (currentuser wordt doorgegeven)
+
+
+![image](https://i.ibb.co/k5P7j2p/image1.png)
+![image](https://i.ibb.co/S5jb0qw/image2.png)
+![image](https://i.ibb.co/MZKGkbB/image3.png)
+![image](https://i.ibb.co/yfxzFPZ/image4.png)
+![image](https://i.ibb.co/ZdFmnrB/image5.png)
+![image](https://i.ibb.co/28cG1r2/image6.png)
+![image](https://i.ibb.co/fG4GQBq/image7.png)
+![image](https://i.ibb.co/mDZWQQw/image8.png)
+![image](https://i.ibb.co/wctcV4H/image9.png)
+![image](https://i.ibb.co/MD9QvYz/image10.png)
