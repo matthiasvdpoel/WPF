@@ -1,0 +1,116 @@
+﻿<Page x:Class="CambioEnStepGeel.View.Register"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:viewmodel="clr-namespace:CambioEnStepGeel.ViewModel"
+      
+      
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="Register"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="#2b9cbe"
+      
+        TextElement.FontWeight="Bold"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
+
+    <Page.Resources>
+        <viewmodel:RegisterViewModel  x:Key="UserViewModel" />
+        <ControlTemplate x:Key="ShakingButtonTemplate" TargetType="Button" >
+           
+                <ContentPresenter HorizontalAlignment="Center" Content="{TemplateBinding Content}">
+                    <ContentPresenter.RenderTransform>
+                        <TransformGroup>
+                            <TranslateTransform x:Name="Position"/>
+                        </TransformGroup>
+                    </ContentPresenter.RenderTransform>
+                </ContentPresenter>
+           
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsPressed" Value="True">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard x:Name="ShakeIt">
+                            <Storyboard>
+                                <DoubleAnimationUsingKeyFrames
+                                        Storyboard.TargetName="Position" 
+                                        Storyboard.TargetProperty="X" 
+                                        RepeatBehavior="5x"
+                                        >
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.05" Value="0"/>
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="2"/>
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.15" Value="0"/>
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.20" Value="-2"/>
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.25" Value="0"/>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+
+        <Style x:Key="ShakingButton" TargetType="Button">
+            <Setter Property="Template" Value="{StaticResource ShakingButtonTemplate}"/>
+            <Setter Property="Foreground" Value="White"/>
+            
+        </Style>
+
+    </Page.Resources>
+
+
+    <Grid DataContext="{StaticResource UserViewModel}">
+
+        <Button Width="100" HorizontalAlignment="Left" Command="{Binding TerugCommand}" VerticalAlignment="Top" Margin="0 50 0 0" >
+            <Button.Content>
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="ArrowBackCircle"/>
+                    <TextBlock Text="Terug"/>
+                </StackPanel>
+            </Button.Content>
+        </Button>
+        <StackPanel   VerticalAlignment="Center" MinWidth="400" HorizontalAlignment="Center">
+        <Image Source="../Images/cambio-tekentafel-illustratie.png" Height="150" Width="400"  Margin="0,0,0,10"/>
+        <Border CornerRadius="10" Background="#2e2137" Padding="10" BorderBrush="Aqua" >
+        <Grid x:Name = "ButtonGrid" HorizontalAlignment="Center" VerticalAlignment="Center" >
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width = "200" />
+                <ColumnDefinition Width = "70" />
+                <ColumnDefinition Width = "100" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height = "auto" />
+                <RowDefinition Height = "auto" />
+                <RowDefinition Height = "auto" />
+                <RowDefinition Height = "auto" />
+                <RowDefinition Height = "auto" />
+                <RowDefinition Height = "auto" />
+                <RowDefinition Height = "auto" />
+
+            </Grid.RowDefinitions>
+            <TextBox Grid.Column="0"  Grid.Row="0" Margin="0,10,5,10" materialDesign:HintAssist.Hint="Achternaam" Text="{Binding User.Achternaam}"/>
+            <TextBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" Margin="5,10,0,10" materialDesign:HintAssist.Hint="Voornaam" Text="{Binding User.Voornaam}"/>
+            <TextBox Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Margin="0,10,5,10" materialDesign:HintAssist.Hint="Straat" Text="{Binding User.Adres}"/>
+            <TextBox Grid.Column="2"  Grid.Row="1" Margin="5,10,0,10"  materialDesign:HintAssist.Hint="Nr" Text="{Binding User.Nr}"/>
+            <TextBox Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Margin="0,10,5,10" materialDesign:HintAssist.Hint="Woonplaats" Text="{Binding User.Woonplaats}"/>
+            <TextBox Grid.Column="2"  Grid.Row="2" Margin="5,10,0,10" materialDesign:HintAssist.Hint="Postcode" Text="{Binding User.Postcode}"/>
+            <TextBox  Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3" Margin="0,10,5,10" materialDesign:HintAssist.Hint="Gsm nummer" Text="{Binding User.Gsm}"/>
+            <TextBox  Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="4" Margin="0,10,5,10" materialDesign:HintAssist.Hint="E-mail" Text="{Binding User.Email}"/>
+
+
+            <TextBox Grid.Column="0"  Grid.Row="5" Margin="0,10,5,10" materialDesign:HintAssist.Hint="Gebruikersnaam" Text="{Binding User.Username}"/>
+            <TextBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5" Margin="5,10,0,10" materialDesign:HintAssist.Hint="Wachtwoord"  Text="{Binding User.Password}"  />
+
+                    <Button Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="6" Content="Registreren" 
+                Command="{Binding InsertUserCommand}" Style="{StaticResource ShakingButton}" Width="200">
+                       
+                    </Button>
+                </Grid>
+        </Border>
+    </StackPanel>
+    </Grid>
+
+</Page>

@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CambioEnStepGeel
+namespace CambioEnStepGeel.View
 {
     /// <summary>
-    /// Interaction logic for SpashScreen.xaml
+    /// Interaction logic for Overzichtboekingen.xaml
     /// </summary>
-    public partial class SpashScreen : Window
+    public partial class Overzichtboekingen : Page
     {
-        public SpashScreen()
+        public Overzichtboekingen()
         {
             InitializeComponent();
         }

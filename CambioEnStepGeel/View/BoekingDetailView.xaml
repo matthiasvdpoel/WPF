@@ -1,0 +1,59 @@
+﻿<Window x:Class="CambioEnStepGeel.View.BoekingDetailView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CambioEnStepGeel.View"
+        xmlns:viewmodel="clr-namespace:CambioEnStepGeel.ViewModel"
+        mc:Ignorable="d"
+        Title="BoekingDetailView" Height="450" Width="800"
+        d:DesignHeight="600" d:DesignWidth="800"
+       
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+		Background="#2b9cbe"
+		TextElement.FontWeight="Bold"
+		FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
+
+
+
+    <Window.Resources>
+        <viewmodel:BoekingDetailViewModel  x:Key="BoekingDetailViewModel" />
+    </Window.Resources>
+    <StackPanel Width="300" DataContext="{Binding Source={StaticResource BoekingDetailViewModel}}">
+        <Border CornerRadius="10" Background="#2e2137" Padding="10">
+        <Grid HorizontalAlignment="Center" Margin="20" Width="200"  >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="65"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.ColumnSpan="2" Text="Overicht boeking: " HorizontalAlignment="Center"/>
+            <TextBlock Grid.Row="1" Text="Vanaf: "/>
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Boeking.DateVanaf}" HorizontalAlignment="Left" Width="60"/>
+            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Boeking.TimeVanaf}" HorizontalAlignment="Right"   />
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Tot:"/>
+            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Boeking.DateTot}" HorizontalAlignment="Left" Width="60"/>
+            <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding Boeking.TimeTot}" HorizontalAlignment="Right"/>
+            <TextBlock Grid.Row="5" Grid.Column="0" Text="Locatie:"/>
+                <TextBlock Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2">
+                    <TextBlock Text="{Binding Boeking.Location.Omschrijving}"/>           
+                    <TextBlock Text=" "/>
+                    <TextBlock Text="{Binding Boeking.Location.Organisatie}"/> 
+                </TextBlock>
+        </Grid>
+        </Border>
+        <Button Margin="10" Content="Sluiten" Command="{Binding SluitCommand}"/>
+    </StackPanel>
+   
+   
+ 
+</Window>

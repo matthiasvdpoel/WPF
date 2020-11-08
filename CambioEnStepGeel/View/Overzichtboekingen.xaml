@@ -1,0 +1,70 @@
+﻿<Page x:Class="CambioEnStepGeel.View.Overzichtboekingen"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CambioEnStepGeel.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Overzichtboekingen"
+      xmlns:viewmodel="clr-namespace:CambioEnStepGeel.ViewModel"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      Background="#2b9cbe"
+      TextElement.FontWeight="Bold"
+      FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
+
+
+    <Page.Resources>
+        <viewmodel:OverzichtBoekingenViewModel  x:Key="OverzichtBoekingenViewModel" />
+    </Page.Resources>
+
+    <Grid DataContext="{StaticResource OverzichtBoekingenViewModel}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+        <Button Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Command="{Binding HomeCommand}" Margin="0,50,0,0" >
+            <Button.Content>
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Home"/>
+                    <TextBlock Text="Home"/>
+                </StackPanel>
+            </Button.Content>
+        </Button>
+        <StackPanel Grid.Column="1" Width="500" >
+            <Image Source="../Images/cambio-check.png" Width="200"/>
+            <TextBlock Text="Dit zijn je huidige boekingen" Margin="10" FontSize="22" />
+            <Border CornerRadius="10" Background="#2e2137" Padding="10" MaxHeight="300">
+                <ListView Width="480"  ItemsSource="{Binding Boekingen}" SelectedItem="{Binding SelectedBoeking}" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width = "120" />
+                                    <ColumnDefinition Width = "65" />
+                                    <ColumnDefinition Width = "67" />
+                                    <ColumnDefinition Width = "50" />
+                                    <ColumnDefinition Width = "65" />
+                                    <ColumnDefinition Width = "67" />
+                                   
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0"   Text="{Binding Omschrijving}" VerticalAlignment="Center"/>
+                                <TextBlock  Grid.Column="1" Text="{Binding DateVanaf}" VerticalAlignment="Center"/>
+                                <TextBlock  Grid.Column="2" Text="{Binding TimeVanaf}" HorizontalAlignment="Right"  VerticalAlignment="Center"/>
+                                <materialDesign:PackIcon  Grid.Column="3" Kind="ArrowRightThick" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock  Grid.Column="4" Text="{Binding DateTot}" VerticalAlignment="Center"/>
+                                <TextBlock  Grid.Column="5" Text="{Binding TimeTot}" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                
+            </Border>
+            <Button  Width="150" Height="40" Background="#2e2137" BorderBrush="#2e2137"  materialDesign:ButtonAssist.CornerRadius="8" Margin="10" Command="{Binding DeleteCommand}">
+                <materialDesign:PackIcon   Kind="Delete" Foreground="Red" HorizontalAlignment="Center"  />
+            </Button>
+        </StackPanel>
+    </Grid>
+</Page>
