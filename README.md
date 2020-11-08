@@ -65,4 +65,4 @@ De gebruiker ziet een gelijkaardig scherm als bij het registreren. Nu zijn de ge
 ![image](https://i.ibb.co/fG4GQBq/image7.png)
 ![image](https://i.ibb.co/mDZWQQw/image8.png)
 ![image](https://i.ibb.co/wctcV4H/image9.png)
-![image](https://i.ibb.co/MD9QvYz/image10.png)
+![image](https://i.ibb.co/5997hG6/Screenshot-2020-11-08-220951.png)
